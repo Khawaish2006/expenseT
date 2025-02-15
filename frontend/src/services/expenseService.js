@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/expenses/";
+// Use environment variable, fallback to localhost for development
+const API_URL = process.env.REACT_APP_API_URL || "https://expenset.onrender.com/api/expenses";
 
 // Fetch all expenses
 export const getExpenses = async () => {
-  const response = await axios.get(`${API_URL}/all`);
+  const response = await axios.get(`${API_URL}/all`); // Keep /all here
   return response.data;
 };
 
